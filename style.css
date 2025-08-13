@@ -1,0 +1,52 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+#map {
+  width: 100vw;
+  height: 100dvh;
+  height: 100vh;
+}
+
+.palette {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+.palette button {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.palette button.with-border {
+  border: 1px solid #ccc;
+}
+.palette button.eraser {
+  width: 42px;
+  font-weight: 700;
+  background: #eee;
+  border: 1px solid #ccc;
+}
+.palette button.is-active {
+  outline: 2px solid #333;
+  outline-offset: 1px;
+}
+
+@supports (padding: max(0px)) {
+  .palette {
+    margin-bottom: max(env(safe-area-inset-bottom), 12px);
+    margin-left: max(env(safe-area-inset-left), 12px);
+  }
+}

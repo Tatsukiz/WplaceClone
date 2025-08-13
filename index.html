@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OpenFreeMap クリックで色塗り</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- MapLibre（グローバルに maplibregl を提供） -->
+    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+    <link
+      href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <!-- カラーパレット -->
+    <div class="palette" id="palette">
+      <button data-color="#ff0000" title="Red"></button>
+      <button data-color="#ffa500" title="Orange"></button>
+      <button data-color="#ffff00" title="Yellow"></button>
+      <button data-color="#00ff00" title="Green"></button>
+      <button data-color="#00ffff" title="Cyan"></button>
+      <button data-color="#0000ff" title="Blue"></button>
+      <button data-color="#ff00ff" title="Magenta"></button>
+      <button data-color="#000000" title="Black"></button>
+      <button data-color="#ffffff" title="White" class="with-border"></button>
+      <button data-color="__eraser__" class="eraser" title="消しゴム">⌫</button>
+    </div>
+
+    <!-- エントリ（ES Modules） -->
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
