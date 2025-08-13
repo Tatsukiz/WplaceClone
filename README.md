@@ -1,2 +1,71 @@
 # WplaceClone
-Practice project using OpenFreeMap and MapLibre GL JS. Allows users to click on the map to color grid cells, inspired by Wplace.
+
+このプロジェクトは [OpenFreeMap](https://openfreemap.org/) と [MapLibre GL JS](https://maplibre.org/) を使って、地図上をクリックするとグリッド単位で色を塗ることができる Wplace のクローンアプリケーションです。
+`localStorage` を利用して、前回の表示位置や塗った色をブラウザに保存します。
+
+## 主な機能
+
+- **地図表示**: OpenFreeMap（Liberty スタイル）での地図描画
+- **色塗り**: クリック位置をグリッド（約 55m 四方）にスナップし、選択した色で塗りつぶし
+- **消しゴム**: 色付きセルをクリックで削除
+- **カラーパレット**: 色を選択してからクリックで塗布
+- **状態保存**:
+  - 地図の中心座標とズームレベル
+  - 選択中の色
+  - 塗ったセル情報
+- **再描画バッチング**: クリック連打時の描画負荷を軽減
+- **欠損アイコン対応**: スタイルに含まれないアイコンは透明ピクセルで代替
+
+## ディレクトリ構成
+
+project-root/
+├── index.html # HTML エントリポイント
+├── style.css # スタイルシート
+├── js/
+│ ├── config.js # 設定値
+│ ├── utils.js # 汎用ユーティリティ
+│ ├── geo.js # グリッド計算や GeoJSON 生成
+│ ├── state.js # アプリの状態管理
+│ ├── storage.js # localStorage の読み書き
+│ ├── palette.js # カラーパレット UI の制御
+│ ├── map.js # MapLibre 初期化とイベント処理
+│ └── main.js # エントリポイント
+└── README.md
+
+## 動作確認手順
+
+1. **リポジトリをクローンまたはダウンロード**
+
+```bash
+git clone <このプロジェクトのURL>
+cd <プロジェクトのディレクトリ>
+```
+
+2. ローカルサーバーを起動
+
+Python 3 がインストールされている場合は以下で起動できます。
+
+```bash
+python3 -m http.server 8080
+```
+
+3. ブラウザでアクセス
+
+下記 URL をブラウザで開きます。
+
+```bash
+http://localhost:8080/
+```
+
+4. 使い方
+
+- 画面左下のパレットから色を選択
+- 地図をクリックして塗る
+- 「⌫」ボタンで消しゴムに切り替え → クリックでセル削除
+- ページをリロードしても塗った情報や位置が保持されます
+
+## 注意事項
+
+- file:// で直接開くと地図スタイルのスプライトやタイルが正しく読み込めない場合があります。必ず HTTP サーバー経由でアクセスしてください。
+- ブラウザの localStorage をクリアすると保存データはすべて消去されます。
+- OpenFreeMap タイルサーバーの利用条件に従ってご利用ください。
