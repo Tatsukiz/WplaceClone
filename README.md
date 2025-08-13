@@ -18,6 +18,7 @@
 
 ## ディレクトリ構成
 
+```
 project-root/
 ├── index.html # HTML エントリポイント
 ├── style.css # スタイルシート
@@ -31,6 +32,7 @@ project-root/
 │ ├── map.js # MapLibre 初期化とイベント処理
 │ └── main.js # エントリポイント
 └── README.md
+```
 
 ## 動作確認手順
 
